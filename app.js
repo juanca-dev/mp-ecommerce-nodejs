@@ -13,7 +13,12 @@ mercadopago.configure({
 });
 var app = express();
 app.use(json());
-
+app.use((req,res,next)=>{
+  res.header('Access-Control-Allow-Origin','*');
+  res.header('Access-Control-Allow-Headers','Authorization, Content-Type, Access-Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods','GET, POST, PUT, DELETE');
+  next();
+});
 const cliente = {
   name: "Lalo",
   surname: "Landa",
