@@ -87,9 +87,11 @@ app.get("/detail", async function (req, res) {
   //     }
   const { img, title, price, unit } = req.query; // destructuracion
   const item = {
-    id: "1234",
+    id: 1234,
     title: title,
-    description: "Dispositivo móvil de Tienda e-commerce",
+    description: "Dispositivo móvil de T
+    ienda e-commerce",
+    picture_url: req.get("host") + img.substr(1),
     picture_url: img,
     quantity: +unit,
     currency_id: "PEN",
